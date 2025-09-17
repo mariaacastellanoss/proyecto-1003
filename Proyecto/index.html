@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Bullet Journal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="cabeceralogo">
+            <h1>Mi Bullet Journal</h1>
+        </div>
+        <div id="menuicono">
+            <i class="fas fa-bars fa-2x"></i>
+        </div>
+        <nav id="menuprincipal">
+            <ul>
+                <li><a href="#" data-section="inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#" data-section="calendario"><i class="fas fa-calendar-alt"></i> Calendario</a></li>
+                <li><a href="#" data-section="tareas"><i class="fas fa-tasks"></i> Tareas</a></li>
+                <li><a href="#" data-section="eventos"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                <li><a href="#" data-section="emociones"><i class="fas fa-heart"></i> Emociones</a></li>
+                <li><a href="#" data-section="estadisticas"><i class="fas fa-chart-pie"></i> Estadísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+   
+        <section id="inicio" class="content-section active">
+            <h2 id="title">Bienvenido a tu Bullet Journal</h2>
+            <p id="subtitle">Organiza tu vida, un día a la vez</p>
+            
+            <div class="summary-container">
+                <div class="summary-card">
+                    <h3>Tareas Pendientes</h3>
+                    <div class="summary-content">
+                        <div class="stat-item">
+                            <div class="stat-value" id="pendingTasksCount">0</div>
+                            <div class="stat-label">Tareas por hacer</div>
+                        </div>
+                    </div>
+                    <a href="#" data-section="tareas" class="summary-link">Ver tareas</a>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Estado de Ánimo</h3>
+                    <div class="summary-content mood-display">
+                        <div class="mood-emoji" id="currentMoodEmoji">😊</div>
+                        <div class="mood-phrase" id="currentMoodPhrase">¡Hoy es un gran día!</div>
+                    </div>
+                    <a href="#" data-section="emociones" class="summary-link">Registrar emoción</a>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Próximos Eventos</h3>
+                    <div class="summary-content">
+                        <div class="stat-item">
+                            <div class="stat-value" id="upcomingEventsCount">0</div>
+                            <div class="stat-label">Eventos próximos</div>
+                        </div>
+                    </div>
+                    <a href="#" data-section="eventos" class="summary-link">Ver eventos</a>
+                </div>
+            </div>
+            
+            <div class="quote-container">
+                <div class="quote-card">
+                    <h3>Frase del Día</h3>
+                    <p id="dailyQuote">"La organización es el camino hacia la productividad."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="calendario" class="content-section">
+            <h2>Calendario</h2>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="currentMonth"></h3>
+                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="calendar"></div>
+            </div>
+        </section>
+
+        <section id="tareas" class="content-section">
+            <h2>Gestión de Tareas</h2>
+            <div class="task-form-container">
+                <div class="task-form">
+                    <div class="symbol-selector">
+                        <button class="symbol-btn active" data-symbol="•">•</button>
+                        <button class="symbol-btn" data-symbol="○">○</button>
+                        <button class="symbol-btn" data-symbol="-">-</button>
+                    </div>
+                    <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
+                    <button id="addTaskBtn"><i class="fas fa-plus"></i> Añadir</button>
+                </div>
+                
+                <div class="task-actions">
+                    <button id="migrateBtn"><i class="fas fa-exchange-alt"></i> Migrar tareas</button>
+                    <button id="clearCompletedBtn"><i class="fas fa-trash"></i> Limpiar completadas</button>
+                </div>
+            </div>
+            
+            <div class="task-list-container">
+                <h3>Tareas Pendientes</h3>
+                <div class="task-list" id="pendingTasksList"></div>
+                
+                <h3>Tareas Completadas</h3>
+                <div class="task-list" id="completedTasksList"></div>
+            </div>
+        </section>
+
+
+        <section id="eventos" class="content-section">
+            <h2>Gestión de Eventos</h2>
+            <div class="event-form-container">
+                <div class="event-form">
+                    <input type="text" id="eventTitle" placeholder="Título del evento">
+                    <input type="date" id="eventDate">
+                    <div class="time-inputs">
+                        <input type="time" id="startTime">
+                        <span>a</span>
+                        <input type="time" id="endTime">
+                    </div>
+                    <button id="addEventBtn"><i class="fas fa-plus"></i> Añadir evento</button>
+                </div>
+            </div>
+            
+            <div class="events-list-container">
+                <h3>Próximos Eventos</h3>
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Mi Bullet Journal</title>
+                    <link rel="stylesheet" href="styles.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+                    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius&display=swap" rel="stylesheet">
+                </head>
+                <body>
+                    <header>
+                        <div id="cabeceralogo">
+                            <h1>Mi Bullet Journal</h1>
+                        </div>
+                        <div id="menuicono">
+                            <i class="fas fa-bars fa-2x"></i>
+                        </div>
+                        <nav id="menuprincipal">
+                            <ul>
+                                <li><a href="#" data-section="inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                                <li><a href="#" data-section="calendario"><i class="fas fa-calendar-alt"></i> Calendario</a></li>
+                                <li><a href="#" data-section="tareas"><i class="fas fa-tasks"></i> Tareas</a></li>
+                                <li><a href="#" data-section="eventos"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="#" data-section="emociones"><i class="fas fa-heart"></i> Emociones</a></li>
+                                <li><a href="#" data-section="estadisticas"><i class="fas fa-chart-pie"></i> Estadísticas</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                    <main>
+                        <section id="inicio" class="content-section active">
+                            <h2 id="title">Bienvenido a tu Bullet Journal</h2>
+                            <p id="subtitle">Organiza tu vida, un día a la vez</p>
+            
+                            <div class="summary-container">
+                                <div class="summary-card">
+                                    <h3>Tareas Pendientes</h3>
+                                    <div class="summary-content">
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="pendingTasksCount">0</div>
+                                            <div class="stat-label">Tareas por hacer</div>
+                                        </div>
+                                    </div>
+                                    <a href="#" data-section="tareas" class="summary-link">Ver tareas</a>
+                                </div>
+                
+                                <div class="summary-card">
+                                    <h3>Estado de Ánimo</h3>
+                                    <div class="summary-content mood-display">
+                                        <div class="mood-emoji" id="currentMoodEmoji">😊</div>
+                                        <div class="mood-phrase" id="currentMoodPhrase">¡Hoy es un gran día!</div>
+                                    </div>
+                                    <a href="#" data-section="emociones" class="summary-link">Registrar emoción</a>
+                                </div>
+                
+                                <div class="summary-card">
+                                    <h3>Próximos Eventos</h3>
+                                    <div class="summary-content">
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="upcomingEventsCount">0</div>
+                                            <div class="stat-label">Eventos próximos</div>
+                                        </div>
+                                    </div>
+                                    <a href="#" data-section="eventos" class="summary-link">Ver eventos</a>
+                                </div>
+                            </div>
+            
+                            <div class="quote-container">
+                                <div class="quote-card">
+                                    <h3>Frase del Día</h3>
+                                    <p id="dailyQuote">"La organización es el camino hacia la productividad."</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="calendario" class="content-section">
+                            <h2>Calendario</h2>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                                    <h3 id="currentMonth"></h3>
+                                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="calendar-grid" id="calendar"></div>
+                            </div>
+                        </section>
+
+                        <section id="tareas" class="content-section">
+                            <h2>Gestión de Tareas</h2>
+                            <div class="task-form-container">
+                                <div class="task-form">
+                                    <div class="symbol-selector">
+                                        <button class="symbol-btn active" data-symbol="•">•</button>
+                                        <button class="symbol-btn" data-symbol="○">○</button>
+                                        <button class="symbol-btn" data-symbol="-">-</button>
+                                    </div>
+                                    <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
+                                    <button id="addTaskBtn"><i class="fas fa-plus"></i> Añadir</button>
+                                </div>
+                
+                                <div class="task-actions">
+                                    <button id="migrateBtn"><i class="fas fa-exchange-alt"></i> Migrar tareas</button>
+                                    <button id="clearCompletedBtn"><i class="fas fa-trash"></i> Limpiar completadas</button>
+                                </div>
+                            </div>
+            
+                            <div class="task-list-container">
+                                <h3>Tareas Pendientes</h3>
+                                <div class="task-list" id="pendingTasksList"></div>
+                
+                                <h3>Tareas Completadas</h3>
+                                <div class="task-list" id="completedTasksList"></div>
+                            </div>
+                        </section>
+
+                        <section id="eventos" class="content-section">
+                            <h2>Gestión de Eventos</h2>
+                            <div class="event-form-container">
+                                <div class="event-form">
+                                    <input type="text" id="eventTitle" placeholder="Título del evento">
+                                    <input type="date" id="eventDate">
+                                    <div class="time-inputs">
+                                        <input type="time" id="startTime">
+                                        <span>a</span>
+                                        <input type="time" id="endTime">
+                                    </div>
+                                    <button id="addEventBtn"><i class="fas fa-plus"></i> Añadir evento</button>
+                                </div>
+                            </div>
+            
+                            <div class="events-list-container">
+                                <h3>Próximos Eventos</h3>
+                                <div class="events-list" id="upcomingEventsList"></div>
+                
+                                <h3>Eventos Pasados</h3>
+                                <div class="events-list" id="pastEventsList"></div>
+                        </section>
+
+                        <section id="emociones" class="content-section">
+                            <h2>Registro de Emociones</h2>
+                            <div class="emotion-form-container">
+                                <div class="emotion-form">
+                                    <select id="emotionSelect">
+                                        <option value="">Selecciona una emoción</option>
+                                        <option value="feliz">😊 Feliz</option>
+                                        <option value="triste">😢 Triste</option>
+                                        <option value="ansioso">😰 Ansioso</option>
+                                        <option value="enfadado">😠 Enfadado</option>
+                                        <option value="cansado">😴 Cansado</option>
+                                        <option value="emocionado">🤗 Emocionado</option>
+                                        <option value="agradecido">🙏 Agradecido</option>
+                                    </select>
+                    
+                                    <div class="intensity-selector">
+                                        <span>Intensidad:</span>
+                                        <div class="intensity-stars">
+                                            <span data-value="1">☆</span>
+                                            <span data-value="2">☆</span>
+                                            <span data-value="3">☆</span>
+                                            <span data-value="4">☆</span>
+                                            <span data-value="5">☆</span>
+                                        </div>
+                                    </div>
+                    
+                                    <textarea id="emotionNote" placeholder="¿Por qué te sientes así?"></textarea>
+                                    <button id="addEmotionBtn"><i class="fas fa-heart"></i> Registrar emoción</button>
+                                </div>
+                            </div>
+            
+                            <div class="emotions-history-container">
+                                <h3>Historial de Emociones</h3>
+                                <div class="emotions-list" id="emotionsList"></div>
+                            </div>
+                        </section>
+
+                        <section id="estadisticas" class="content-section">
+                            <h2>Estadísticas y Análisis</h2>
+            
+                            <div class="stats-container">
+                                <div class="stat-card">
+                                    <h3>Resumen de Actividad</h3>
+                                    <div class="stat-grid">
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="totalTasksStat">0</div>
+                                            <div class="stat-label">Tareas totales</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="completedTasksStat">0</div>
+                                            <div class="stat-label">Tareas completadas</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="totalEventsStat">0</div>
+                                            <div class="stat-label">Eventos totales</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="totalEmotionsStat">0</div>
+                                            <div class="stat-label">Emociones registradas</div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="stat-card">
+                                    <h3>Distribución de Emociones</h3>
+                                    <div class="chart-container">
+                                        <canvas id="emotionsChart" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                
+                                <div class="stat-card">
+                                    <h3>Productividad Semanal</h3>
+                                    <div class="chart-container">
+                                        <canvas id="productivityChart" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+
+                    <div id="dayModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2 id="modalDate"></h2>
+                            <div class="modal-tabs">
+                                <button class="modal-tab-btn active" data-modal-tab="tasks">Tareas</button>
+                                <button class="modal-tab-btn" data-modal-tab="events">Eventos</button>
+                            </div>
+            
+                            <div class="modal-tab-content active" id="modal-tasks">
+                            </div>
+            
+                            <div class="modal-tab-content" id="modal-events">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="notification" class="notification"></div>
+
+                    <script src="js/script.js"></script>
+                </body>
+                </html>

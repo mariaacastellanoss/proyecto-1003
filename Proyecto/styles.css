@@ -1,0 +1,651 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius&display=swap');
+
+body {
+    background-color: #D1D8BE;
+    text-align: center;
+    font-family: "Delius", cursive;
+    font-style: normal;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    background-color: #819A91;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#cabeceralogo h1 {
+    margin: 0;
+    font-size: 35px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#menuicono {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+#menuprincipal {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #EEEFE0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+    min-width: 200px;
+}
+
+#menuprincipal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menuprincipal li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#menuprincipal li:last-child {
+    border-bottom: none;
+}
+
+#menuprincipal a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#menuprincipal a:hover {
+    color: #819A91;
+}
+
+#title {
+    margin-top: 30px;
+    line-height: 10px;
+    font-size: 28px;
+    color: black;
+}
+
+#subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Estilos para secciones */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Estilos para la página de inicio */
+.summary-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.summary-card {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+    text-align: center;
+}
+
+.summary-card h3 {
+    margin-top: 0;
+    color: #333;
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+}
+
+.summary-content {
+    margin: 20px 0;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-item {
+    margin: 10px 0;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #819A91;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #555;
+}
+
+.summary-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #819A91;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.summary-link:hover {
+    text-decoration: underline;
+}
+
+.mood-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mood-emoji {
+    font-size: 48px;
+}
+
+.mood-phrase {
+    font-style: italic;
+    color: #555;
+}
+
+.quote-container {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.quote-card {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+}
+
+.quote-card h3 {
+    margin-top: 0;
+    color: #333;
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+}
+
+#dailyQuote, #motivationalQuote {
+    font-style: italic;
+    font-size: 18px;
+    margin: 20px 0;
+    color: #555;
+}
+
+/* Estilos para el calendario */
+.calendar-container {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #819A91;
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: 1px solid #819A91;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.calendar-day:hover {
+    background-color: #819A91;
+    color: white;
+}
+
+.calendar-day.has-events {
+    background-color: #819A91;
+    color: white;
+}
+
+.calendar-day.has-tasks {
+    background-color: #EEEFE0;
+}
+
+/* Estilos para tareas */
+.task-form-container, .event-form-container, .emotion-form-container {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+}
+
+.task-form, .event-form, .emotion-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.symbol-selector {
+    display: flex;
+    gap: 5px;
+}
+
+.symbol-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #819A91;
+    background: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.symbol-btn.active {
+    background-color: #819A91;
+    color: white;
+    border-color: #819A91;
+}
+
+#taskInput, #eventTitle, #eventDate, #emotionSelect, #emotionNote {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #819A91;
+    border-radius: 4px;
+    font-family: "Delius", cursive;
+    font-size: 16px;
+    min-width: 200px;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.intensity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.intensity-stars {
+    display: flex;
+}
+
+.intensity-stars span {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.intensity-stars span.active {
+    color: #819A91;
+}
+
+#addTaskBtn, #addEventBtn, #addEmotionBtn, #migrateBtn, #clearCompletedBtn {
+    background-color: #819A91;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Delius", cursive;
+    font-size: 16px;
+}
+
+#addTaskBtn:hover, #addEventBtn:hover, #addEmotionBtn:hover {
+    background-color: #6b8a7a;
+}
+
+#migrateBtn, #clearCompletedBtn {
+    background-color: #EEEFE0;
+    color: #333;
+}
+
+#migrateBtn:hover, #clearCompletedBtn:hover {
+    background-color: #d9dad0;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.task-list-container, .events-list-container, .emotions-history-container {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+    text-align: left;
+}
+
+.task-list, .events-list, .emotions-list {
+    margin-top: 15px;
+}
+
+.task-item {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #EEEFE0;
+    border-left: 4px solid #819A91;
+    display: flex;
+    align-items: center;
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.task-symbol {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-date {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+}
+
+.task-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #819A91;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.event-item {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #EEEFE0;
+    border-left: 4px solid #819A91;
+}
+
+.event-date {
+    font-weight: bold;
+    color: #819A91;
+}
+
+.event-time {
+    color: #666;
+    font-size: 14px;
+}
+
+.event-title {
+    margin-top: 5px;
+}
+
+.emotion-entry {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #EEEFE0;
+    border-left: 4px solid #819A91;
+}
+
+.emotion-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.emotion-emoji {
+    font-size: 1.5rem;
+}
+
+.emotion-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.emotion-intensity {
+    color: #819A91;
+    margin: 5px 0;
+}
+
+.emotion-note {
+    color: #333;
+    font-style: italic;
+}
+
+/* Estilos para estadísticas */
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background-color: #FFEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    color: #333;
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.chart-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #FFEAEA;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #819A91;
+}
+
+.modal-tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    font-family: "Delius", cursive;
+}
+
+.modal-tab-btn.active {
+    color: #819A91;
+    border-bottom-color: #819A91;
+}
+
+.modal-tab-content {
+    display: none;
+}
+
+.modal-tab-content.active {
+    display: block;
+}
+
+/* Estilos para notificaciones */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #819A91;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: #b6bba7 2px 4px 4px 2px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2000;
+    font-family: "Delius", cursive;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success {
+    background-color: #819A91;
+}
+
+.notification.error {
+    background-color: #e57373;
+}
+
+.notification.warning {
+    background-color: #ffb74d;
+    color: #333;
+}
+
+.notification.info {
+    background-color: #64b5f6;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .summary-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .summary-card {
+        width: 90%;
+    }
+    
+    .calendar-grid {
+        gap: 2px;
+    }
+    
+    .calendar-day {
+        font-size: 0.9rem;
+    }
+    
+    .task-form, .event-form, .emotion-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}
